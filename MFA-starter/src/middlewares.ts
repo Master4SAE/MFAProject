@@ -11,10 +11,8 @@ const errorHandler = (
   err: CustomError,
   req: Request,
   res: Response<ErrorResponse>,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   next: NextFunction
 ) => {
-  // console.log('errorhanler', err);
   const statusCode = err.status !== 200 ? err.status || 500 : 500;
   res.status(statusCode).json({
     message: err.message,
